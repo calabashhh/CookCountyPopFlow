@@ -51,15 +51,15 @@
             try {
                 var flowmapLayer = L.canvasFlowmapLayer(data, {
                     originAndDestinationFieldIds: {
-                        originUniqueIdField: 'GEOID_B',
+                        originUniqueIdField: 'GEOID_A',
                         originGeometry: {
-                            x: 'B_lon',
-                            y: 'B_lat'
-                        },
-                        destinationUniqueIdField: 'GEOID_A',
-                        destinationGeometry: {
                             x: 'A_lon',
                             y: 'A_lat'
+                        },
+                        destinationUniqueIdField: 'GEOID_B',
+                        destinationGeometry: {
+                            x: 'B_lon',
+                            y: 'B_lat'
                         }
                     },
 
