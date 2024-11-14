@@ -12,6 +12,16 @@
                 height: 100%;
                 width: 100%;
             }
+
+            .title {
+                padding: 6px 8px;
+                font: 14px/16px Arial, Helvetica, sans-serif;
+                background: white;
+                background: rgba(255,255,255,0.8);
+                box-shadow: 0 0 15px rgba(0,0,0,0.2);
+                border-radius: 5px;
+            }
+            
         </style>
      
         <!-- Load your data first -->
@@ -104,9 +114,23 @@
                     animationEasingType: 'Out',
                     animationDuration: 2000
                 }).addTo(map);
+
+
+                    var title = L.control({position: 'topright'}); // position of the title
+                    
+                    title.onAdd = function (map) {
+                        this._div = L.DomUtil.create('div', 'title'); // create a div with a class "title"
+                        this._div.innerHTML = "<h3>TOP 10 Net Migration to Cook County, Illinois</h3>";  // Title text, may use html to customize
+                        return this._div;
+                    };
+                    
+                    title.addTo(map);
+                
             } catch (e) {
                 console.error('Error creating flow map layer:', e);
             }
+
+            
         </script>
    </body>
 </html>index.html
