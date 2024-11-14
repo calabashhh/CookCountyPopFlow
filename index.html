@@ -15,7 +15,7 @@
         </style>
      
         <!-- Load your data first -->
-        <script type="text/javascript" src="toppoptransf.js"></script>
+        <script type="text/javascript" src="CookCountyLargeNetOut.js"></script>
         
         <!-- Leaflet CSS and JS -->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -34,14 +34,7 @@
     <body>
         <div id="map"></div>
         <script type="text/javascript">
-            // Make sure your data is defined before using it
-            // If loading from toppoptransf.js, verify the variable name matches
-            // Uncomment and modify this if needed:
-            /*
-            var data = {
-                // Your flow data here
-            };
-            */
+        
             
             var map = L.map('map', {
                 center: [41, -87],
@@ -54,7 +47,7 @@
                 minZoom: 5
             }).addTo(map);
 
-            // Add error handling for the flow map layer
+           
             try {
                 var flowmapLayer = L.canvasFlowmapLayer(data, {
                     originAndDestinationFieldIds: {
@@ -71,8 +64,7 @@
                     },
 
                     canvasBezierStyle: {
-                    //This example demonstrates the use of graduated symbols (class breaks) for the flowlines
-                    //Other options: https://developers.arcgis.com/documentation/common-data-types/renderer-objects.htm
+                   
                       type: 'classBreaks',
                       field: 'Net_B2A', // The field/value to be used for symbolizing the lines
                     
@@ -109,7 +101,7 @@
                     pathDisplayMode: 'all',
                     animationStarted: true,
                     animationEasingFamily: 'Cubic',
-                    animationEasingType: 'In',
+                    animationEasingType: 'Out',
                     animationDuration: 2000
                 }).addTo(map);
             } catch (e) {
